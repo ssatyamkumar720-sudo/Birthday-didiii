@@ -3,322 +3,883 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Didi Jiii 🐱💖</title>
+<title>Happy Birthday My Queen Didi 👑💖</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
- margin:0;
- min-height:100vh;
- overflow:hidden;
- font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#ffd6e7,#e8d8ff,#c9f3ff);
- display:flex;
- align-items:center;
- justify-content:center;
- color:#54204d;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#fff0f6,#ffe0ed,#f5dcff);
+    color:#4a1930;
 }
 
-.card{
- width:min(92%,520px);
- max-height:92vh;
- overflow:auto;
- text-align:center;
- padding:28px 20px;
- border-radius:30px;
- background:rgba(255,255,255,.82);
- backdrop-filter:blur(12px);
- box-shadow:0 18px 60px rgba(104,55,110,.25);
- position:relative;
- z-index:5;
+.screen{
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+    animation:fade .8s ease;
 }
+
+.screen.active{
+    display:flex;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:scale(.9)}
+    to{opacity:1;transform:scale(1)}
+}
+
+/* CAT */
 
 .cat{
- font-size:90px;
- display:inline-block;
- animation:bounce 1.8s infinite ease-in-out;
+    width:180px;
+    height:180px;
+    position:relative;
+    animation:bounce 1.8s infinite;
+    margin-bottom:20px;
 }
+
+.cat-head{
+    position:absolute;
+    width:150px;
+    height:125px;
+    left:15px;
+    top:35px;
+    background:#fff;
+    border-radius:50%;
+    border:3px solid #e3b1c4;
+    box-shadow:0 12px 25px #d9a1b7;
+}
+
+.ear{
+    position:absolute;
+    width:65px;
+    height:70px;
+    background:#fff;
+    border:3px solid #e3b1c4;
+    top:0;
+    z-index:-1;
+}
+
+.ear.left{
+    left:12px;
+    transform:rotate(-28deg);
+    border-radius:15px 55px 10px 50px;
+}
+
+.ear.right{
+    right:12px;
+    transform:rotate(28deg);
+    border-radius:55px 15px 50px 10px;
+}
+
+.eye{
+    position:absolute;
+    width:18px;
+    height:25px;
+    top:43px;
+    background:#292229;
+    border-radius:50%;
+}
+
+.eye.left{left:40px}
+.eye.right{right:40px}
+
+.eye:after{
+    content:"";
+    position:absolute;
+    width:5px;
+    height:7px;
+    background:white;
+    border-radius:50%;
+    left:4px;
+    top:3px;
+}
+
+.nose{
+    position:absolute;
+    width:18px;
+    height:13px;
+    left:64px;
+    top:75px;
+    background:#ff91b0;
+    border-radius:50%;
+}
+
+.mouth{
+    position:absolute;
+    left:62px;
+    top:87px;
+    font-size:23px;
+}
+
+.whisker{
+    position:absolute;
+    width:55px;
+    height:2px;
+    background:#999;
+}
+
+.w1{left:-30px;top:78px;transform:rotate(8deg)}
+.w2{left:-30px;top:92px;transform:rotate(-8deg)}
+.w3{right:-30px;top:78px;transform:rotate(-8deg)}
+.w4{right:-30px;top:92px;transform:rotate(8deg)}
 
 @keyframes bounce{
- 0%,100%{transform:translateY(0) rotate(-3deg)}
- 50%{transform:translateY(-12px) rotate(3deg)}
+    50%{transform:translateY(-12px)}
 }
 
-.paw{
- position:fixed;
- font-size:25px;
- opacity:.35;
- animation:float 6s linear infinite;
-}
+/* BUTTONS */
 
-.p1{left:8%;top:15%}
-.p2{right:10%;top:25%;animation-delay:1s}
-.p3{left:15%;bottom:12%;animation-delay:2s}
-.p4{right:15%;bottom:18%;animation-delay:3s}
-
-@keyframes float{
- 0%{transform:translateY(20px) rotate(0)}
- 100%{transform:translateY(-80px) rotate(25deg)}
-}
-
-h1{
- font-size:clamp(28px,7vw,42px);
- margin:10px 0;
- color:#d63f91;
-}
-
-h2{
- font-size:22px;
- margin:8px;
-}
-
-p{
- font-size:17px;
- line-height:1.65;
-}
-
-.bubble{
- display:inline-block;
- background:#fff0f8;
- border:2px solid #ffb7dc;
- padding:10px 17px;
- border-radius:22px;
- margin:8px 0 15px;
- font-weight:bold;
+.buttons{
+    display:flex;
+    gap:18px;
+    margin-top:25px;
 }
 
 button{
- border:0;
- border-radius:999px;
- padding:14px 25px;
- margin:8px;
- font-size:17px;
- font-weight:bold;
- cursor:pointer;
- box-shadow:0 8px 20px rgba(150,50,100,.2);
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px #d5a4b7;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
 }
 
 .yes{
- background:#ff4f9a;
- color:white;
+    background:#f13f87;
+    color:white;
 }
 
 .no{
- background:#eee;
- color:#555;
- position:relative;
+    background:white;
+    color:#ed397d;
 }
 
-.hidden{
- display:none;
+/* BIRTHDAY */
+
+.crown{
+    font-size:85px;
+    animation:crown 1s infinite alternate;
 }
 
-.message{
- text-align:left;
- margin-top:18px;
+@keyframes crown{
+    to{
+        transform:rotate(8deg) scale(1.1);
+    }
 }
 
-.message p{
- background:rgba(255,245,251,.8);
- padding:12px 15px;
- border-radius:18px;
+.title{
+    color:#e83278;
+    font-size:clamp(35px,8vw,60px);
+    text-shadow:0 5px 15px #ffb0ce;
+    margin:15px;
 }
 
-.replay{
- background:#7b61ff;
- color:white;
+/* CAKE */
+
+.cake-area{
+    width:340px;
+    height:330px;
+    position:relative;
+    margin:10px;
 }
 
-.confetti{
- position:fixed;
- top:-20px;
- font-size:24px;
- z-index:10;
- animation:fall 3s linear forwards;
+.plate{
+    position:absolute;
+    bottom:20px;
+    left:15px;
+    width:310px;
+    height:35px;
+    background:linear-gradient(#fff,#ddd);
+    border-radius:50%;
+    box-shadow:0 8px 15px #b99;
+}
+
+.cake{
+    position:absolute;
+    width:240px;
+    height:180px;
+    left:50px;
+    bottom:48px;
+    transition:1s;
+}
+
+.layer{
+    position:absolute;
+    border-radius:18px;
+    box-shadow:inset 0 -8px 0 #d94e7d;
+}
+
+.bottom{
+    width:240px;
+    height:70px;
+    bottom:0;
+    background:linear-gradient(#ff91b0,#f36291);
+}
+
+.middle{
+    width:220px;
+    height:65px;
+    left:10px;
+    bottom:55px;
+    background:linear-gradient(#ffb0c7,#ff7fa4);
+}
+
+.top{
+    width:200px;
+    height:60px;
+    left:20px;
+    bottom:105px;
+    background:linear-gradient(#ffd0dd,#ff9fbc);
+}
+
+.cream{
+    position:absolute;
+    width:200px;
+    height:22px;
+    left:20px;
+    bottom:140px;
+    background:white;
+    border-radius:50%;
+}
+
+.cherry{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#df294d;
+    border-radius:50%;
+    bottom:148px;
+}
+
+.c1{left:45px}
+.c2{left:91px}
+.c3{left:137px}
+.c4{left:160px}
+
+.candle{
+    position:absolute;
+    width:15px;
+    height:65px;
+    bottom:160px;
+    border-radius:5px;
+    background:repeating-linear-gradient(
+        45deg,
+        white 0 7px,
+        #ff5f96 7px 14px
+    );
+}
+
+.can1{left:95px}
+.can2{left:137px}
+.can3{left:179px}
+
+.flame{
+    position:absolute;
+    width:20px;
+    height:30px;
+    top:-28px;
+    left:-3px;
+    border-radius:50% 50% 50% 50%;
+    background:radial-gradient(
+        circle,
+        white 5%,
+        #ffe000 30%,
+        #ff7100 70%
+    );
+    animation:flicker .25s infinite alternate;
+}
+
+@keyframes flicker{
+    to{
+        transform:scale(1.15) rotate(4deg);
+    }
+}
+
+.blown .flame{
+    opacity:0;
+    transform:scale(.1);
+    transition:.5s;
+}
+
+.cake-name{
+    position:absolute;
+    width:150px;
+    left:45px;
+    bottom:83px;
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* CUT */
+
+.cut-cake{
+    transform:translateX(-45px) rotate(-3deg);
+}
+
+/* GIFT */
+
+.gift{
+    width:230px;
+    height:230px;
+    position:relative;
+    margin:20px;
+    cursor:pointer;
+    animation:float 1.5s infinite alternate;
+}
+
+@keyframes float{
+    to{transform:translateY(-10px)}
+}
+
+.gift-box{
+    position:absolute;
+    bottom:10px;
+    width:230px;
+    height:140px;
+    background:linear-gradient(135deg,#ff4f91,#d92768);
+    border-radius:10px;
+}
+
+.ribbon-v{
+    position:absolute;
+    left:97px;
+    width:36px;
+    height:140px;
+    background:#ffd94d;
+}
+
+.ribbon-h{
+    position:absolute;
+    top:55px;
+    width:230px;
+    height:32px;
+    background:#ffd94d;
+}
+
+.lid{
+    position:absolute;
+    left:-7px;
+    top:45px;
+    width:244px;
+    height:45px;
+    background:#ff649e;
+    border-radius:9px;
+    z-index:5;
+    transition:1s;
+}
+
+.bow{
+    position:absolute;
+    top:-30px;
+    left:83px;
+    width:70px;
+    height:40px;
+}
+
+.bow:before,
+.bow:after{
+    content:"";
+    position:absolute;
+    width:48px;
+    height:32px;
+    background:#ffd94d;
+    border-radius:50%;
+}
+
+.bow:before{
+    left:-18px;
+    transform:rotate(25deg);
+}
+
+.bow:after{
+    right:-18px;
+    transform:rotate(-25deg);
+}
+
+.gift.open .lid{
+    transform:translateY(-120px) rotate(-8deg);
+}
+
+.chocolates{
+    position:absolute;
+    z-index:2;
+    left:22px;
+    bottom:55px;
+    width:185px;
+    height:80px;
+    opacity:0;
+    transform:scale(.4);
+    transition:1s;
+}
+
+.gift.open .chocolates{
+    opacity:1;
+    transform:scale(1);
+}
+
+.choco{
+    position:absolute;
+    width:48px;
+    height:42px;
+    background:linear-gradient(135deg,#6b3425,#2c130c);
+    border-radius:9px;
+}
+
+.choco:nth-child(1){left:0;bottom:5px}
+.choco:nth-child(2){left:45px;bottom:25px}
+.choco:nth-child(3){left:90px;bottom:5px}
+.choco:nth-child(4){left:135px;bottom:25px}
+
+/* MESSAGE */
+
+.message-box{
+    width:min(700px,95%);
+    max-height:82vh;
+    overflow:auto;
+    padding:28px;
+    border-radius:28px;
+    background:#ffffffd9;
+    backdrop-filter:blur(12px);
+    box-shadow:0 15px 45px #d5a5b8;
+}
+
+.message-box p{
+    font-size:18px;
+    line-height:1.8;
+    white-space:pre-line;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    top:-30px;
+    font-size:25px;
+    pointer-events:none;
+    animation:fall 4s linear forwards;
+    z-index:99;
 }
 
 @keyframes fall{
- to{
-  transform:translateY(110vh) rotate(720deg);
-  opacity:0;
- }
-}
-
-.heart{
- position:fixed;
- bottom:-30px;
- font-size:25px;
- animation:heart 5s linear forwards;
- z-index:2;
-}
-
-@keyframes heart{
- to{
-  transform:translateY(-110vh) translateX(80px);
-  opacity:0;
- }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="paw p1">🐾</div>
-<div class="paw p2">🐾</div>
-<div class="paw p3">🐾</div>
-<div class="paw p4">🐾</div>
+<!-- 1 CAT -->
+<section id="s1" class="screen active">
 
-<div class="card" id="start">
+<div class="cat">
 
-<div class="cat">🐱</div>
+    <div class="ear left"></div>
+    <div class="ear right"></div>
 
-<div class="bubble">
-Meowww… Didi jiii 😻
+    <div class="cat-head">
+
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="nose"></div>
+        <div class="mouth">⌣</div>
+
+        <div class="whisker w1"></div>
+        <div class="whisker w2"></div>
+        <div class="whisker w3"></div>
+        <div class="whisker w4"></div>
+
+    </div>
+
 </div>
 
-<h1>Hey Didi Jiii! 💗</h1>
+<h1>Are you ready? 🐱💖</h1>
 
-<p>
-Ye cute si cat aapke liye ek birthday surprise laayi hai… 🎁✨
-</p>
+<p>Ek chhota sa surprise hai tumhare liye... 🥺🎁</p>
 
-<h2>
-Khologe surprise? 🐾
-</h2>
+<div class="buttons">
 
-<button class="yes" onclick="openSurprise()">
+<button class="yes" onclick="birthday()">
 YES ❤️
 </button>
 
-<button class="no" id="noBtn">
+<button class="no" onclick="nope()">
 NO 😜
 </button>
 
 </div>
 
+</section>
 
-<div class="card hidden" id="birthday">
 
-<div class="cat">😻</div>
+<!-- 2 BIRTHDAY -->
+<section id="s2" class="screen">
 
-<div class="bubble">
-Meowww! Happy Birthday Didi Jiii! 🎂💖
-</div>
+<div class="crown">👑</div>
 
-<h1>
-Happy Birthday, Dear Didi Jiii! ❤️🥳
+<h1 class="title">
+Happy Birthday my Queen Didi 👑💖🎉
 </h1>
 
-<div class="message">
-
 <p>
-<b>
-Happy Birthday Dear Didi jiii... 🥳 🎉🎉🎉 🎂
-</b>
+Aaj ka din bilkul aapke jaisa special ho... 🥰
 </p>
 
-<p>
-Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
-</p>
-
-<p>
-I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
-</p>
-
-<p>
-Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
-</p>
-
-<p>
-<b>
-Happy Birthday once again, Didi! 🥳❤️
-</b>
-</p>
-
-</div>
-
-<button class="replay" onclick="location.reload()">
-Replay 🐱
+<button class="yes" onclick="cakeScreen()">
+Cake Time 🎂
 </button>
 
+</section>
+
+
+<!-- 3 CAKE -->
+<section id="s3" class="screen">
+
+<h1>Birthday Cake 🎂💖</h1>
+
+<div class="cake-area" id="cakeArea">
+
+<div class="plate"></div>
+
+<div class="cake">
+
+<div class="layer bottom"></div>
+<div class="layer middle"></div>
+<div class="layer top"></div>
+
+<div class="cream"></div>
+
+<div class="cherry c1"></div>
+<div class="cherry c2"></div>
+<div class="cherry c3"></div>
+<div class="cherry c4"></div>
+
+<div class="cake-name">
+My Queen Didi 👑
 </div>
+
+<div class="candle can1">
+<div class="flame"></div>
+</div>
+
+<div class="candle can2">
+<div class="flame"></div>
+</div>
+
+<div class="candle can3">
+<div class="flame"></div>
+</div>
+
+</div>
+
+</div>
+
+<p id="instruction">
+Make a wish & blow the candles! 🕯️💨
+</p>
+
+<button class="yes" onclick="blow()">
+Blow Candles 💨🕯️
+</button>
+
+</section>
+
+
+<!-- 4 CUTTING -->
+<section id="s4" class="screen">
+
+<h1>Yayyy! 🎉🎂</h1>
+
+<div class="cake-area">
+
+<div class="plate"></div>
+
+<div class="cake cut-cake">
+
+<div class="layer bottom"></div>
+<div class="layer middle"></div>
+<div class="layer top"></div>
+
+<div class="cream"></div>
+
+<div class="cherry c1"></div>
+<div class="cherry c2"></div>
+<div class="cherry c3"></div>
+
+<div class="cake-name">
+Happy Birthday 💖
+</div>
+
+</div>
+
+</div>
+
+<p>
+Cake cutting time! 🔪🎂❤️
+</p>
+
+<button class="yes" onclick="giftScreen()">
+Cake Cut! 🎂✨
+</button>
+
+</section>
+
+
+<!-- 5 GIFT -->
+<section id="s5" class="screen">
+
+<h1>Ek Gift Tumhare Liye 🎁💖</h1>
+
+<div class="gift" id="gift" onclick="openGift()">
+
+<div class="chocolates">
+
+<div class="choco"></div>
+<div class="choco"></div>
+<div class="choco"></div>
+<div class="choco"></div>
+
+</div>
+
+<div class="gift-box">
+
+<div class="ribbon-v"></div>
+<div class="ribbon-h"></div>
+
+</div>
+
+<div class="lid">
+
+<div class="bow"></div>
+
+</div>
+
+</div>
+
+<p id="giftText">
+Gift ko open karo... 👀🎁
+</p>
+
+<button id="lastButton"
+        class="yes"
+        style="display:none"
+        onclick="messageScreen()">
+
+Last Surprise 💌
+
+</button>
+
+</section>
+
+
+<!-- 6 FINAL MESSAGE -->
+<section id="s6" class="screen">
+
+<div class="message-box">
+
+<div style="font-size:60px;">
+💖👑💐
+</div>
+
+<h1 class="title" style="font-size:38px;">
+For My Queen Didi 💖
+</h1>
+
+<p>
+
+Happy Birthday Dear Didi jiii... 🥳🎉🎉🎉🎂
+
+Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
+
+I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
+
+Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
+
+Happy Birthday once again, Didi! 🥳❤️
+
+</p>
+
+<div style="font-size:45px;margin-top:20px;">
+🎂💖🎁🍫👑✨
+</div>
+
+</div>
+
+</section>
 
 
 <script>
 
-const noBtn=document.getElementById('noBtn');
+function show(id){
 
-function moveNo(){
+document.querySelectorAll(".screen")
+.forEach(x=>x.classList.remove("active"));
 
- const x=Math.random()*(window.innerWidth-120);
- const y=Math.random()*(window.innerHeight-70);
-
- noBtn.style.position='fixed';
- noBtn.style.left=x+'px';
- noBtn.style.top=y+'px';
+document.getElementById(id)
+.classList.add("active");
 
 }
 
-noBtn.addEventListener('mouseenter',moveNo);
 
-noBtn.addEventListener(
- 'touchstart',
- e=>{
-  e.preventDefault();
-  moveNo();
- },
- {passive:false}
+/* YES */
+
+function birthday(){
+
+show("s2");
+
+hearts();
+
+}
+
+
+/* NO */
+
+function nope(){
+
+let text=[
+"Areyy NO nahi 😜❤️",
+"YES dabao naaa 🥺💖",
+"NO allowed nahi hai 😂",
+"Please YES kar do 😭❤️",
+"Surprise miss ho jayega 👀🎁"
+];
+
+alert(
+text[Math.floor(Math.random()*text.length)]
 );
 
+}
 
-function openSurprise(){
 
- document.getElementById('start').classList.add('hidden');
+/* CAKE */
 
- document.getElementById('birthday').classList.remove('hidden');
+function cakeScreen(){
 
- for(let i=0;i<80;i++){
+show("s3");
 
-  const c=document.createElement('div');
+}
 
-  c.className='confetti';
 
-  c.textContent=
-  ['🎉','✨','💖','🎂','🐾','🌸']
-  [Math.floor(Math.random()*6)];
+/* BLOW */
 
-  c.style.left=Math.random()*100+'vw';
+function blow(){
 
-  c.style.animationDelay=
-  Math.random()*1.5+'s';
+document.getElementById("cakeArea")
+.classList.add("blown");
 
-  document.body.appendChild(c);
- }
+document.getElementById("instruction")
+.innerHTML=
+"Wish complete! ✨💨❤️";
 
- setInterval(()=>{
+setTimeout(()=>{
 
-  const h=document.createElement('div');
+show("s4");
 
-  h.className='heart';
+hearts();
 
-  h.textContent=
-  ['💖','💕','💗','🐾']
-  [Math.floor(Math.random()*4)];
+},1600);
 
-  h.style.left=Math.random()*100+'vw';
+}
 
-  h.style.animationDuration=
-  (4+Math.random()*3)+'s';
 
-  document.body.appendChild(h);
+/* GIFT */
 
-  setTimeout(
-   ()=>h.remove(),
-   7000
-  );
+function giftScreen(){
 
- },500);
+show("s5");
+
+}
+
+
+function openGift(){
+
+let gift=
+document.getElementById("gift");
+
+gift.classList.add("open");
+
+document.getElementById("giftText")
+.innerHTML=
+"Yayyy! 🍫🍫🍫 Tumhare liye chocolates! 💖";
+
+document.getElementById("lastButton")
+.style.display="inline-block";
+
+hearts();
+
+}
+
+
+/* FINAL */
+
+function messageScreen(){
+
+show("s6");
+
+hearts();
+
+}
+
+
+/* HEARTS */
+
+function hearts(){
+
+for(let i=0;i<30;i++){
+
+setTimeout(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+let icons=[
+"💖","💕","💗","❤️",
+"💝","✨","🌸","💐"
+];
+
+h.innerHTML=
+icons[Math.floor(Math.random()*icons.length)];
+
+h.style.left=
+Math.random()*100+"vw";
+
+h.style.animationDuration=
+(3+Math.random()*3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},6500);
+
+},i*100);
+
+}
 
 }
 
