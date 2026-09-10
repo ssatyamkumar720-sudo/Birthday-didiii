@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday Dear Didi Jiii ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd1dc,#e5d1ff,#fff0c9);display:flex;align-items:center;justify-content:center;overflow:hidden;color:#55233c}
+.card{width:min(92%,680px);max-height:92vh;overflow:auto;background:#fffffff0;padding:30px 24px;border-radius:30px;text-align:center;box-shadow:0 20px 70px #6d315555;position:relative;z-index:5}
+.cake{font-size:65px;animation:bounce 1s infinite alternate}h1{font-size:clamp(30px,8vw,54px);margin:8px 0 18px;background:linear-gradient(90deg,#ff3f7f,#914cff,#ff8a00);-webkit-background-clip:text;color:transparent}
+button{border:0;border-radius:50px;padding:14px 32px;margin:10px;font-size:18px;font-weight:bold;cursor:pointer}#yes{background:#ff4081;color:white;box-shadow:0 8px 22px #ff408166}#no{background:#eee;color:#555;position:relative}
+#birthday{display:none}#birthday h2{font-size:clamp(28px,7vw,48px);margin:10px 0;color:#ff3f7f}.message{font-size:18px;line-height:1.75;text-align:left;white-space:pre-line;margin-top:18px}
+.heart,.conf{position:fixed;z-index:10;pointer-events:none}.heart{bottom:-40px;animation:up 6s linear forwards}.conf{top:-30px;animation:fall 3s linear forwards}
+@keyframes bounce{to{transform:translateY(-8px) rotate(3deg)}}@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}@keyframes fall{to{transform:translateY(115vh) rotate(720deg);opacity:0}}
+</style></head>
+<body>
+<div class="card">
+<div id="question">
+<div class="cake">🎂</div>
+<h1>Birthday Surprise! 💖</h1>
+<p style="font-size:20px">Didi Jiii, kya aap apna special birthday surprise kholna chahti hain? 🥰💌</p>
+<button id="yes">YES ❤️</button><button id="no">NO 😜</button>
+</div>
+<div id="birthday">
+<div class="cake">🎂✨🎉</div>
+<h2>Happy Birthday, Dear Didi Jiii! ❤️🥳</h2>
+<div class="message">Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
+
+I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
+
+Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
+
+Happy Birthday once again, Didi! 🥳❤️</div>
+<div style="font-size:38px;margin-top:20px">💖🌸🎂🎉🥳🎊❤️</div>
+</div>
+</div>
+<script>
+const no=document.getElementById('no');
+function runAway(){no.style.transform=`translate(${Math.random()*260-130}px,${Math.random()*180-90}px)`;}
+no.addEventListener('mouseenter',runAway);no.addEventListener('touchstart',e=>{e.preventDefault();runAway()});
+document.getElementById('yes').onclick=()=>{
+document.getElementById('question').style.display='none';
+document.getElementById('birthday').style.display='block';
+for(let i=0;i<100;i++)setTimeout(confetti,i*15);
+};
+function confetti(){let x=document.createElement('div');x.className='conf';x.textContent=['🎉','🎊','✨','💖','🌸','❤️'][Math.floor(Math.random()*6)];x.style.left=Math.random()*100+'vw';x.style.fontSize=(16+Math.random()*24)+'px';x.style.animationDuration=(2+Math.random()*2)+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),4500)}
+setInterval(()=>{let x=document.createElement('div');x.className='heart';x.textContent=['❤️','💖','💕','✨'][Math.floor(Math.random()*4)];x.style.left=Math.random()*100+'vw';x.style.fontSize=(18+Math.random()*24)+'px';x.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),9000)},550);
+</script></body></html>
