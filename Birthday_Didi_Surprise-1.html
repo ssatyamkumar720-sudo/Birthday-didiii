@@ -1,51 +1,249 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Didi ❤️</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd6e0,#d9c2ff,#ffe8b6);display:flex;justify-content:center;align-items:center;overflow:hidden;color:#5b2341}
-.card{width:92%;max-width:650px;background:#ffffffea;border-radius:30px;padding:30px 22px;text-align:center;box-shadow:0 20px 70px #6b315555;position:relative;z-index:5}
-h1{font-size:clamp(30px,8vw,55px);margin:8px 0;background:linear-gradient(90deg,#ff4081,#9c4dff,#ff8a00);-webkit-background-clip:text;color:transparent}
-.cake{font-size:65px;animation:b 1s infinite alternate}.sub{font-size:19px}
-button{border:0;border-radius:50px;padding:14px 30px;margin:10px;font-size:18px;font-weight:bold;cursor:pointer}
-#yes{background:#ff4081;color:#fff;box-shadow:0 8px 20px #ff408166}#no{background:#eee;color:#555;position:relative}
-#msg{display:none;line-height:1.7;font-size:17px}
-#final{display:none;font-size:24px;font-weight:bold}
-.float{position:fixed;bottom:-50px;animation:up linear forwards;z-index:1}
-.conf{position:fixed;top:-20px;animation:fall 3s linear forwards;z-index:10}
-@keyframes b{to{transform:scale(1.08) rotate(3deg)}}@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+}
+
+.card{
+  width:92%;
+  max-width:650px;
+  padding:30px 22px;
+  text-align:center;
+  background:rgba(255,255,255,.94);
+  border-radius:28px;
+  box-shadow:0 15px 50px rgba(0,0,0,.2);
+  position:relative;
+  z-index:5;
+}
+
+.cake{
+  font-size:65px;
+  animation:bounce 1s infinite alternate;
+}
+
+h1{
+  color:#ff4081;
+  font-size:clamp(30px,8vw,55px);
+  margin:15px 0;
+}
+
+h2{
+  color:#ff4081;
+}
+
+button{
+  border:0;
+  border-radius:50px;
+  padding:15px 30px;
+  margin:10px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff4081;
+  color:white;
+}
+
+#no{
+  background:#555;
+  color:white;
+  position:relative;
+}
+
+#msg{
+  display:none;
+  line-height:1.8;
+  font-size:17px;
+  text-align:left;
+  color:#333;
+  white-space:pre-line;
+}
+
+#final{
+  display:none;
+  font-size:28px;
+  margin-top:20px;
+}
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:25px;
+  animation:float 5s linear forwards;
+  pointer-events:none;
+  z-index:2;
+}
+
+.confetti{
+  position:fixed;
+  width:10px;
+  height:18px;
+  top:-20px;
+  animation:fall 4s linear forwards;
+  z-index:10;
+}
+
+@keyframes bounce{
+  from{transform:translateY(0)}
+  to{transform:translateY(-12px)}
+}
+
+@keyframes float{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-<div class="cake">🎂</div>
-<h1>Birthday Surprise! 💖</h1>
-<p class="sub">Didi Jiii, ek chhota sa sawaal hai... 🥰</p>
-<p>क्या आप अपना Birthday Surprise खोलना चाहेंगी? 💌</p>
-<button id="yes">YES ❤️</button>
-<button id="no">NO 😜</button>
-<div id="final">🎉 Happy Birthday, Dear Didi Jiii! 🎂❤️</div>
-<div id="msg">
-<p>Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️</p>
-<p>I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho. ✨</p>
-<p>Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️</p>
-<p><b>Happy Birthday once again, Didi! 🥳❤️</b></p>
+
+  <div id="question">
+
+    <div class="cake">🎂</div>
+
+    <h1>Birthday Surprise! 💖</h1>
+
+    <h2>Didi jiii, surprise dekhogi? 😍</h2>
+
+    <button id="yes" onclick="showBirthday()">YES ❤️</button>
+    <button id="no">NO 😜</button>
+
+  </div>
+
+  <div id="birthday">
+
+    <div class="cake">🎂✨🎉</div>
+
+    <h1>Happy Birthday, Dear Didi Jiii! ❤️🥳</h1>
+
+    <div id="msg">
+Happy Birthday  Dear Didi jiii... 🥳 🎉🎉🎉 🎂
+
+Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
+
+I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
+
+Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
+
+Happy Birthday once again, Didi! 🥳❤️
+    </div>
+
+    <div id="final">
+      💖🌸🎂🎉🥳🎊❤️
+    </div>
+
+  </div>
+
 </div>
-</div>
+
 <script>
-const no=document.getElementById('no');
-function moveNo(){no.style.transform=`translate(${Math.random()*240-120}px,${Math.random()*160-80}px)`;}
-no.addEventListener('mouseenter',moveNo); no.addEventListener('touchstart',e=>{e.preventDefault();moveNo()});
-document.getElementById('yes').onclick=()=>{
- document.getElementById('final').style.display='block';
- document.getElementById('msg').style.display='block';
- document.getElementById('yes').style.display='none';no.style.display='none';
- for(let i=0;i<90;i++)setTimeout(confetti,i*18);
-};
-function confetti(){let x=document.createElement('div');x.className='conf';x.textContent=['🎉','✨','💖','🌸','🎊'][Math.floor(Math.random()*5)];x.style.left=Math.random()*100+'vw';x.style.fontSize=15+Math.random()*25+'px';x.style.animationDuration=2+Math.random()*2+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),4500)}
-setInterval(()=>{let x=document.createElement('div');x.className='float';x.textContent=['❤️','💖','💕','✨'][Math.floor(Math.random()*4)];x.style.left=Math.random()*100+'vw';x.style.fontSize=18+Math.random()*22+'px';x.style.animationDuration=5+Math.random()*5+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),10000)},600);
+
+const noBtn = document.getElementById("no");
+
+function moveNo(){
+  const x = Math.random() * (window.innerWidth - 130);
+  const y = Math.random() * (window.innerHeight - 70);
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseenter",moveNo);
+noBtn.addEventListener("touchstart",function(e){
+  e.preventDefault();
+  moveNo();
+});
+
+function showBirthday(){
+
+  document.getElementById("question").style.display="none";
+
+  document.getElementById("birthday").style.display="block";
+
+  document.getElementById("msg").style.display="block";
+
+  document.getElementById("final").style.display="block";
+
+  createConfetti();
+
+  setInterval(createHeart,500);
+}
+
+function createConfetti(){
+
+  for(let i=0;i<120;i++){
+
+    const c=document.createElement("div");
+
+    c.className="confetti";
+
+    c.style.left=Math.random()*100+"vw";
+
+    c.style.background=
+      ["#ff4081","#ffd700","#00bcd4","#9c27b0","#4caf50","#ff5722"]
+      [Math.floor(Math.random()*6)];
+
+    c.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+function createHeart(){
+
+  const h=document.createElement("div");
+
+  h.className="heart";
+
+  h.innerHTML=["❤️","💖","💕","💗","💓","🌸"][Math.floor(Math.random()*6)];
+
+  h.style.left=Math.random()*100+"vw";
+
+  h.style.fontSize=(20+Math.random()*25)+"px";
+
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),5000);
+}
+
 </script>
+
 </body>
 </html>
