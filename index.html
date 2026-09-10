@@ -7,709 +7,766 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-    min-height:100vh;
-    overflow:hidden;
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#fff0f6,#ffe0ed,#f5dcff);
-    color:#4a1930;
+  min-height:100vh;
+  overflow:hidden;
+  font-family:"Segoe UI",sans-serif;
+  background:linear-gradient(135deg,#fff0f6,#ffe0ed,#f5dcff);
+  color:#4a1930;
 }
 
 .screen{
-    position:absolute;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
-    animation:fade .8s ease;
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+  animation:fade .7s ease;
 }
 
 .screen.active{
-    display:flex;
+  display:flex;
 }
 
 @keyframes fade{
-    from{opacity:0;transform:scale(.9)}
-    to{opacity:1;transform:scale(1)}
+  from{
+    opacity:0;
+    transform:scale(.94);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+h1{
+  font-size:clamp(32px,8vw,58px);
+  margin:15px 0;
+}
+
+p{
+  font-size:19px;
+  line-height:1.7;
+}
+
+button{
+  border:0;
+  padding:14px 28px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px #d5a4b7;
+  transition:.25s;
+}
+
+button:hover{
+  transform:scale(1.06);
+}
+
+.yes{
+  background:#f13f87;
+  color:white;
+}
+
+.no{
+  background:white;
+  color:#ed397d;
+}
+
+.buttons{
+  display:flex;
+  gap:18px;
+  margin-top:25px;
 }
 
 /* CAT */
 
 .cat{
-    width:180px;
-    height:180px;
-    position:relative;
-    animation:bounce 1.8s infinite;
-    margin-bottom:20px;
+  width:180px;
+  height:180px;
+  position:relative;
+  animation:bounce 1.8s infinite;
 }
 
 .cat-head{
-    position:absolute;
-    width:150px;
-    height:125px;
-    left:15px;
-    top:35px;
-    background:#fff;
-    border-radius:50%;
-    border:3px solid #e3b1c4;
-    box-shadow:0 12px 25px #d9a1b7;
+  position:absolute;
+  width:150px;
+  height:125px;
+  left:15px;
+  top:35px;
+  background:white;
+  border:3px solid #e3b1c4;
+  border-radius:50%;
+  box-shadow:0 12px 25px #d9a1b7;
 }
 
 .ear{
-    position:absolute;
-    width:65px;
-    height:70px;
-    background:#fff;
-    border:3px solid #e3b1c4;
-    top:0;
-    z-index:-1;
+  position:absolute;
+  width:65px;
+  height:70px;
+  top:0;
+  background:white;
+  border:3px solid #e3b1c4;
+  z-index:-1;
 }
 
 .ear.left{
-    left:12px;
-    transform:rotate(-28deg);
-    border-radius:15px 55px 10px 50px;
+  left:12px;
+  transform:rotate(-28deg);
+  border-radius:15px 55px 10px 50px;
 }
 
 .ear.right{
-    right:12px;
-    transform:rotate(28deg);
-    border-radius:55px 15px 50px 10px;
+  right:12px;
+  transform:rotate(28deg);
+  border-radius:55px 15px 50px 10px;
 }
 
 .eye{
-    position:absolute;
-    width:18px;
-    height:25px;
-    top:43px;
-    background:#292229;
-    border-radius:50%;
+  position:absolute;
+  width:18px;
+  height:25px;
+  top:43px;
+  background:#292229;
+  border-radius:50%;
 }
 
-.eye.left{left:40px}
-.eye.right{right:40px}
+.eye.left{
+  left:40px;
+}
+
+.eye.right{
+  right:40px;
+}
 
 .eye:after{
-    content:"";
-    position:absolute;
-    width:5px;
-    height:7px;
-    background:white;
-    border-radius:50%;
-    left:4px;
-    top:3px;
+  content:"";
+  position:absolute;
+  width:5px;
+  height:7px;
+  background:white;
+  border-radius:50%;
+  left:4px;
+  top:3px;
 }
 
 .nose{
-    position:absolute;
-    width:18px;
-    height:13px;
-    left:64px;
-    top:75px;
-    background:#ff91b0;
-    border-radius:50%;
+  position:absolute;
+  width:18px;
+  height:13px;
+  left:64px;
+  top:75px;
+  background:#ff91b0;
+  border-radius:50%;
 }
 
 .mouth{
-    position:absolute;
-    left:62px;
-    top:87px;
-    font-size:23px;
+  position:absolute;
+  left:62px;
+  top:87px;
+  font-size:23px;
 }
 
 .whisker{
-    position:absolute;
-    width:55px;
-    height:2px;
-    background:#999;
+  position:absolute;
+  width:55px;
+  height:2px;
+  background:#999;
 }
 
-.w1{left:-30px;top:78px;transform:rotate(8deg)}
-.w2{left:-30px;top:92px;transform:rotate(-8deg)}
-.w3{right:-30px;top:78px;transform:rotate(-8deg)}
-.w4{right:-30px;top:92px;transform:rotate(8deg)}
+.w1{
+  left:-30px;
+  top:78px;
+  transform:rotate(8deg);
+}
+
+.w2{
+  left:-30px;
+  top:92px;
+  transform:rotate(-8deg);
+}
+
+.w3{
+  right:-30px;
+  top:78px;
+  transform:rotate(-8deg);
+}
+
+.w4{
+  right:-30px;
+  top:92px;
+  transform:rotate(8deg);
+}
 
 @keyframes bounce{
-    50%{transform:translateY(-12px)}
-}
-
-/* BUTTONS */
-
-.buttons{
-    display:flex;
-    gap:18px;
-    margin-top:25px;
-}
-
-button{
-    border:none;
-    padding:14px 28px;
-    border-radius:30px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 8px 20px #d5a4b7;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.08);
-}
-
-.yes{
-    background:#f13f87;
-    color:white;
-}
-
-.no{
-    background:white;
-    color:#ed397d;
+  50%{
+    transform:translateY(-12px);
+  }
 }
 
 /* BIRTHDAY */
 
 .crown{
-    font-size:85px;
-    animation:crown 1s infinite alternate;
+  font-size:85px;
+  animation:crown 1s infinite alternate;
 }
 
 @keyframes crown{
-    to{
-        transform:rotate(8deg) scale(1.1);
-    }
+  to{
+    transform:rotate(8deg) scale(1.1);
+  }
 }
 
 .title{
-    color:#e83278;
-    font-size:clamp(35px,8vw,60px);
-    text-shadow:0 5px 15px #ffb0ce;
-    margin:15px;
+  color:#e83278;
+  text-shadow:0 5px 15px #ffb0ce;
 }
 
 /* CAKE */
 
 .cake-area{
-    width:340px;
-    height:330px;
-    position:relative;
-    margin:10px;
+  width:340px;
+  height:330px;
+  position:relative;
+  margin:10px;
 }
 
 .plate{
-    position:absolute;
-    bottom:20px;
-    left:15px;
-    width:310px;
-    height:35px;
-    background:linear-gradient(#fff,#ddd);
-    border-radius:50%;
-    box-shadow:0 8px 15px #b99;
+  position:absolute;
+  bottom:20px;
+  left:15px;
+  width:310px;
+  height:35px;
+  background:linear-gradient(#fff,#ddd);
+  border-radius:50%;
+  box-shadow:0 8px 15px #b99;
 }
 
 .cake{
-    position:absolute;
-    width:240px;
-    height:180px;
-    left:50px;
-    bottom:48px;
-    transition:1s;
+  position:absolute;
+  width:240px;
+  height:180px;
+  left:50px;
+  bottom:48px;
+  transition:1s;
 }
 
 .layer{
-    position:absolute;
-    border-radius:18px;
-    box-shadow:inset 0 -8px 0 #d94e7d;
+  position:absolute;
+  border-radius:18px;
+  box-shadow:inset 0 -8px 0 #d94e7d;
 }
 
 .bottom{
-    width:240px;
-    height:70px;
-    bottom:0;
-    background:linear-gradient(#ff91b0,#f36291);
+  width:240px;
+  height:70px;
+  bottom:0;
+  background:linear-gradient(#ff91b0,#f36291);
 }
 
 .middle{
-    width:220px;
-    height:65px;
-    left:10px;
-    bottom:55px;
-    background:linear-gradient(#ffb0c7,#ff7fa4);
+  width:220px;
+  height:65px;
+  left:10px;
+  bottom:55px;
+  background:linear-gradient(#ffb0c7,#ff7fa4);
 }
 
 .top{
-    width:200px;
-    height:60px;
-    left:20px;
-    bottom:105px;
-    background:linear-gradient(#ffd0dd,#ff9fbc);
+  width:200px;
+  height:60px;
+  left:20px;
+  bottom:105px;
+  background:linear-gradient(#ffd0dd,#ff9fbc);
 }
 
 .cream{
-    position:absolute;
-    width:200px;
-    height:22px;
-    left:20px;
-    bottom:140px;
-    background:white;
-    border-radius:50%;
+  position:absolute;
+  width:200px;
+  height:22px;
+  left:20px;
+  bottom:140px;
+  background:white;
+  border-radius:50%;
 }
 
 .cherry{
-    position:absolute;
-    width:18px;
-    height:18px;
-    background:#df294d;
-    border-radius:50%;
-    bottom:148px;
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#df294d;
+  border-radius:50%;
+  bottom:148px;
 }
 
-.c1{left:45px}
-.c2{left:91px}
-.c3{left:137px}
-.c4{left:160px}
+.c1{
+  left:45px;
+}
+
+.c2{
+  left:91px;
+}
+
+.c3{
+  left:137px;
+}
+
+.c4{
+  left:160px;
+}
 
 .candle{
-    position:absolute;
-    width:15px;
-    height:65px;
-    bottom:160px;
-    border-radius:5px;
-    background:repeating-linear-gradient(
-        45deg,
-        white 0 7px,
-        #ff5f96 7px 14px
-    );
+  position:absolute;
+  width:15px;
+  height:65px;
+  bottom:160px;
+  border-radius:5px;
+  background:repeating-linear-gradient(
+    45deg,
+    white 0 7px,
+    #ff5f96 7px 14px
+  );
 }
 
-.can1{left:95px}
-.can2{left:137px}
-.can3{left:179px}
+.can1{
+  left:95px;
+}
+
+.can2{
+  left:137px;
+}
+
+.can3{
+  left:179px;
+}
 
 .flame{
-    position:absolute;
-    width:20px;
-    height:30px;
-    top:-28px;
-    left:-3px;
-    border-radius:50% 50% 50% 50%;
-    background:radial-gradient(
-        circle,
-        white 5%,
-        #ffe000 30%,
-        #ff7100 70%
-    );
-    animation:flicker .25s infinite alternate;
+  position:absolute;
+  width:20px;
+  height:30px;
+  top:-28px;
+  left:-3px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    white 5%,
+    #ffe000 30%,
+    #ff7100 70%
+  );
+  animation:flicker .25s infinite alternate;
 }
 
 @keyframes flicker{
-    to{
-        transform:scale(1.15) rotate(4deg);
-    }
+  to{
+    transform:scale(1.15) rotate(4deg);
+  }
 }
 
 .blown .flame{
-    opacity:0;
-    transform:scale(.1);
-    transition:.5s;
+  opacity:0;
+  transform:scale(.1);
+  transition:.5s;
 }
 
 .cake-name{
-    position:absolute;
-    width:150px;
-    left:45px;
-    bottom:83px;
-    color:white;
-    font-weight:bold;
-    font-size:18px;
+  position:absolute;
+  width:150px;
+  left:45px;
+  bottom:83px;
+  color:white;
+  font-weight:bold;
+  font-size:18px;
 }
 
-/* CUT */
-
 .cut-cake{
-    transform:translateX(-45px) rotate(-3deg);
+  transform:translateX(-45px) rotate(-3deg);
 }
 
 /* GIFT */
 
 .gift{
-    width:230px;
-    height:230px;
-    position:relative;
-    margin:20px;
-    cursor:pointer;
-    animation:float 1.5s infinite alternate;
+  width:230px;
+  height:230px;
+  position:relative;
+  margin:20px;
+  cursor:pointer;
+  animation:float 1.5s infinite alternate;
 }
 
 @keyframes float{
-    to{transform:translateY(-10px)}
+  to{
+    transform:translateY(-10px);
+  }
 }
 
 .gift-box{
-    position:absolute;
-    bottom:10px;
-    width:230px;
-    height:140px;
-    background:linear-gradient(135deg,#ff4f91,#d92768);
-    border-radius:10px;
+  position:absolute;
+  bottom:10px;
+  width:230px;
+  height:140px;
+  background:linear-gradient(135deg,#ff4f91,#d92768);
+  border-radius:10px;
 }
 
 .ribbon-v{
-    position:absolute;
-    left:97px;
-    width:36px;
-    height:140px;
-    background:#ffd94d;
+  position:absolute;
+  left:97px;
+  width:36px;
+  height:140px;
+  background:#ffd94d;
 }
 
 .ribbon-h{
-    position:absolute;
-    top:55px;
-    width:230px;
-    height:32px;
-    background:#ffd94d;
+  position:absolute;
+  top:55px;
+  width:230px;
+  height:32px;
+  background:#ffd94d;
 }
 
 .lid{
-    position:absolute;
-    left:-7px;
-    top:45px;
-    width:244px;
-    height:45px;
-    background:#ff649e;
-    border-radius:9px;
-    z-index:5;
-    transition:1s;
+  position:absolute;
+  left:-7px;
+  top:45px;
+  width:244px;
+  height:45px;
+  background:#ff649e;
+  border-radius:9px;
+  z-index:5;
+  transition:1s;
 }
 
 .bow{
-    position:absolute;
-    top:-30px;
-    left:83px;
-    width:70px;
-    height:40px;
+  position:absolute;
+  top:-30px;
+  left:83px;
+  width:70px;
+  height:40px;
 }
 
 .bow:before,
 .bow:after{
-    content:"";
-    position:absolute;
-    width:48px;
-    height:32px;
-    background:#ffd94d;
-    border-radius:50%;
+  content:"";
+  position:absolute;
+  width:48px;
+  height:32px;
+  background:#ffd94d;
+  border-radius:50%;
 }
 
 .bow:before{
-    left:-18px;
-    transform:rotate(25deg);
+  left:-18px;
+  transform:rotate(25deg);
 }
 
 .bow:after{
-    right:-18px;
-    transform:rotate(-25deg);
+  right:-18px;
+  transform:rotate(-25deg);
 }
 
 .gift.open .lid{
-    transform:translateY(-120px) rotate(-8deg);
+  transform:translateY(-120px) rotate(-8deg);
 }
 
 .chocolates{
-    position:absolute;
-    z-index:2;
-    left:22px;
-    bottom:55px;
-    width:185px;
-    height:80px;
-    opacity:0;
-    transform:scale(.4);
-    transition:1s;
+  position:absolute;
+  z-index:2;
+  left:22px;
+  bottom:55px;
+  width:185px;
+  height:80px;
+  opacity:0;
+  transform:scale(.4);
+  transition:1s;
 }
 
 .gift.open .chocolates{
-    opacity:1;
-    transform:scale(1);
+  opacity:1;
+  transform:scale(1);
 }
 
 .choco{
-    position:absolute;
-    width:48px;
-    height:42px;
-    background:linear-gradient(135deg,#6b3425,#2c130c);
-    border-radius:9px;
+  position:absolute;
+  width:48px;
+  height:42px;
+  background:linear-gradient(135deg,#6b3425,#2c130c);
+  border-radius:9px;
 }
 
-.choco:nth-child(1){left:0;bottom:5px}
-.choco:nth-child(2){left:45px;bottom:25px}
-.choco:nth-child(3){left:90px;bottom:5px}
-.choco:nth-child(4){left:135px;bottom:25px}
+.choco:nth-child(1){
+  left:0;
+  bottom:5px;
+}
+
+.choco:nth-child(2){
+  left:45px;
+  bottom:25px;
+}
+
+.choco:nth-child(3){
+  left:90px;
+  bottom:5px;
+}
+
+.choco:nth-child(4){
+  left:135px;
+  bottom:25px;
+}
 
 /* MESSAGE */
 
 .message-box{
-    width:min(700px,95%);
-    max-height:82vh;
-    overflow:auto;
-    padding:28px;
-    border-radius:28px;
-    background:#ffffffd9;
-    backdrop-filter:blur(12px);
-    box-shadow:0 15px 45px #d5a5b8;
+  width:min(700px,95%);
+  max-height:82vh;
+  overflow:auto;
+  padding:28px;
+  border-radius:28px;
+  background:#ffffffd9;
+  backdrop-filter:blur(12px);
+  box-shadow:0 15px 45px #d5a5b8;
 }
 
 .message-box p{
-    font-size:18px;
-    line-height:1.8;
-    white-space:pre-line;
+  font-size:18px;
+  line-height:1.8;
+  white-space:pre-line;
 }
 
 /* HEARTS */
 
 .heart{
-    position:fixed;
-    top:-30px;
-    font-size:25px;
-    pointer-events:none;
-    animation:fall 4s linear forwards;
-    z-index:99;
+  position:fixed;
+  top:-30px;
+  font-size:25px;
+  pointer-events:none;
+  animation:fall 4s linear forwards;
+  z-index:99;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 1 CAT -->
+<!-- CAT SCREEN -->
+
 <section id="s1" class="screen active">
 
-<div class="cat">
-
+  <div class="cat">
     <div class="ear left"></div>
     <div class="ear right"></div>
 
     <div class="cat-head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="mouth">⌣</div>
 
-        <div class="eye left"></div>
-        <div class="eye right"></div>
+      <div class="whisker w1"></div>
+      <div class="whisker w2"></div>
+      <div class="whisker w3"></div>
+      <div class="whisker w4"></div>
+    </div>
+  </div>
 
-        <div class="nose"></div>
-        <div class="mouth">⌣</div>
+  <h1>Are you ready? 🐱💖</h1>
 
-        <div class="whisker w1"></div>
-        <div class="whisker w2"></div>
-        <div class="whisker w3"></div>
-        <div class="whisker w4"></div>
+  <p>Ek chhota sa surprise hai aapke liye... 🥺🎁</p>
+
+  <div class="buttons">
+    <button class="yes" onclick="birthday()">YES ❤️</button>
+    <button class="no" onclick="nope()">NO 😜</button>
+  </div>
+
+</section>
+
+
+<!-- BIRTHDAY SCREEN -->
+
+<section id="s2" class="screen">
+
+  <div class="crown">👑</div>
+
+  <h1 class="title">
+    Happy Birthday my Queen Didi 👑💖🎉
+  </h1>
+
+  <p>
+    Aaj ka din bilkul aapke jaisa special ho... 🥰
+  </p>
+
+  <button class="yes" onclick="cakeScreen()">
+    Cake Time 🎂
+  </button>
+
+</section>
+
+
+<!-- CAKE SCREEN -->
+
+<section id="s3" class="screen">
+
+  <h1>Birthday Cake 🎂💖</h1>
+
+  <div class="cake-area" id="cakeArea">
+
+    <div class="plate"></div>
+
+    <div class="cake">
+
+      <div class="layer bottom"></div>
+      <div class="layer middle"></div>
+      <div class="layer top"></div>
+
+      <div class="cream"></div>
+
+      <div class="cherry c1"></div>
+      <div class="cherry c2"></div>
+      <div class="cherry c3"></div>
+      <div class="cherry c4"></div>
+
+      <div class="cake-name">
+        My Queen Didi 👑
+      </div>
+
+      <div class="candle can1">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle can2">
+        <div class="flame"></div>
+      </div>
+
+      <div class="candle can3">
+        <div class="flame"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <p id="instruction">
+    Make a wish & blow the candles! 🕯️💨
+  </p>
+
+  <button class="yes" onclick="blow()">
+    Blow Candles 💨🕯️
+  </button>
+
+</section>
+
+
+<!-- CAKE CUTTING SCREEN -->
+
+<section id="s4" class="screen">
+
+  <h1>Yayyy! 🎉🎂</h1>
+
+  <div class="cake-area">
+
+    <div class="plate"></div>
+
+    <div class="cake cut-cake">
+
+      <div class="layer bottom"></div>
+      <div class="layer middle"></div>
+      <div class="layer top"></div>
+
+      <div class="cream"></div>
+
+      <div class="cherry c1"></div>
+      <div class="cherry c2"></div>
+      <div class="cherry c3"></div>
+
+      <div class="cake-name">
+        Happy Birthday 💖
+      </div>
 
     </div>
 
-</div>
+  </div>
 
-<h1>Are you ready? 🐱💖</h1>
+  <p>Cake cutting time! 🔪🎂❤️</p>
 
-<p>Ek chhota sa surprise hai tumhare liye... 🥺🎁</p>
-
-<div class="buttons">
-
-<button class="yes" onclick="birthday()">
-YES ❤️
-</button>
-
-<button class="no" onclick="nope()">
-NO 😜
-</button>
-
-</div>
+  <button class="yes" onclick="giftScreen()">
+    Cake Cut! 🎂✨
+  </button>
 
 </section>
 
 
-<!-- 2 BIRTHDAY -->
-<section id="s2" class="screen">
+<!-- GIFT SCREEN -->
 
-<div class="crown">👑</div>
-
-<h1 class="title">
-Happy Birthday my Queen Didi 👑💖🎉
-</h1>
-
-<p>
-Aaj ka din bilkul aapke jaisa special ho... 🥰
-</p>
-
-<button class="yes" onclick="cakeScreen()">
-Cake Time 🎂
-</button>
-
-</section>
-
-
-<!-- 3 CAKE -->
-<section id="s3" class="screen">
-
-<h1>Birthday Cake 🎂💖</h1>
-
-<div class="cake-area" id="cakeArea">
-
-<div class="plate"></div>
-
-<div class="cake">
-
-<div class="layer bottom"></div>
-<div class="layer middle"></div>
-<div class="layer top"></div>
-
-<div class="cream"></div>
-
-<div class="cherry c1"></div>
-<div class="cherry c2"></div>
-<div class="cherry c3"></div>
-<div class="cherry c4"></div>
-
-<div class="cake-name">
-My Queen Didi 👑
-</div>
-
-<div class="candle can1">
-<div class="flame"></div>
-</div>
-
-<div class="candle can2">
-<div class="flame"></div>
-</div>
-
-<div class="candle can3">
-<div class="flame"></div>
-</div>
-
-</div>
-
-</div>
-
-<p id="instruction">
-Make a wish & blow the candles! 🕯️💨
-</p>
-
-<button class="yes" onclick="blow()">
-Blow Candles 💨🕯️
-</button>
-
-</section>
-
-
-<!-- 4 CUTTING -->
-<section id="s4" class="screen">
-
-<h1>Yayyy! 🎉🎂</h1>
-
-<div class="cake-area">
-
-<div class="plate"></div>
-
-<div class="cake cut-cake">
-
-<div class="layer bottom"></div>
-<div class="layer middle"></div>
-<div class="layer top"></div>
-
-<div class="cream"></div>
-
-<div class="cherry c1"></div>
-<div class="cherry c2"></div>
-<div class="cherry c3"></div>
-
-<div class="cake-name">
-Happy Birthday 💖
-</div>
-
-</div>
-
-</div>
-
-<p>
-Cake cutting time! 🔪🎂❤️
-</p>
-
-<button class="yes" onclick="giftScreen()">
-Cake Cut! 🎂✨
-</button>
-
-</section>
-
-
-<!-- 5 GIFT -->
 <section id="s5" class="screen">
 
-<h1>Ek Gift Tumhare Liye 🎁💖</h1>
+  <h1>Ek Gift Aapke Liye 🎁💖</h1>
 
-<div class="gift" id="gift" onclick="openGift()">
+  <div class="gift" id="gift" onclick="openGift()">
 
-<div class="chocolates">
+    <div class="chocolates">
+      <div class="choco"></div>
+      <div class="choco"></div>
+      <div class="choco"></div>
+      <div class="choco"></div>
+    </div>
 
-<div class="choco"></div>
-<div class="choco"></div>
-<div class="choco"></div>
-<div class="choco"></div>
+    <div class="gift-box">
+      <div class="ribbon-v"></div>
+      <div class="ribbon-h"></div>
+    </div>
 
-</div>
+    <div class="lid">
+      <div class="bow"></div>
+    </div>
 
-<div class="gift-box">
+  </div>
 
-<div class="ribbon-v"></div>
-<div class="ribbon-h"></div>
+  <p id="giftText">
+    Gift ko open karo... 👀🎁
+  </p>
 
-</div>
+  <button
+    id="lastButton"
+    class="yes"
+    style="display:none"
+    onclick="messageScreen()">
 
-<div class="lid">
+    Last Surprise 💌
 
-<div class="bow"></div>
-
-</div>
-
-</div>
-
-<p id="giftText">
-Gift ko open karo... 👀🎁
-</p>
-
-<button id="lastButton"
-        class="yes"
-        style="display:none"
-        onclick="messageScreen()">
-
-Last Surprise 💌
-
-</button>
+  </button>
 
 </section>
 
 
-<!-- 6 FINAL MESSAGE -->
+<!-- FINAL MESSAGE -->
+
 <section id="s6" class="screen">
 
-<div class="message-box">
+  <div class="message-box">
 
-<div style="font-size:60px;">
-💖👑💐
-</div>
+    <div style="font-size:60px;">
+      💖👑💐
+    </div>
 
-<h1 class="title" style="font-size:38px;">
-For My Queen Didi 💖
-</h1>
+    <h1 class="title" style="font-size:38px;">
+      For My Queen Didi 💖
+    </h1>
 
-<p>
+    <p>
 
 Happy Birthday Dear Didi jiii... 🥳🎉🎉🎉🎂
 
@@ -721,13 +778,13 @@ Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan�
 
 Happy Birthday once again, Didi! 🥳❤️
 
-</p>
+    </p>
 
-<div style="font-size:45px;margin-top:20px;">
-🎂💖🎁🍫👑✨
-</div>
+    <div style="font-size:45px;margin-top:20px;">
+      🎂💖🎁🍫👑✨
+    </div>
 
-</div>
+  </div>
 
 </section>
 
@@ -736,41 +793,43 @@ Happy Birthday once again, Didi! 🥳❤️
 
 function show(id){
 
-document.querySelectorAll(".screen")
-.forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".screen")
+    .forEach(x => x.classList.remove("active"));
 
-document.getElementById(id)
-.classList.add("active");
+  document.getElementById(id)
+    .classList.add("active");
 
 }
 
 
-/* YES */
+/* YES BUTTON */
 
 function birthday(){
 
-show("s2");
+  show("s2");
 
-hearts();
+  hearts();
 
 }
 
 
-/* NO */
+/* NO BUTTON */
 
 function nope(){
 
-let text=[
-"Areyy NO nahi 😜❤️",
-"YES dabao naaa 🥺💖",
-"NO allowed nahi hai 😂",
-"Please YES kar do 😭❤️",
-"Surprise miss ho jayega 👀🎁"
-];
+  const text = [
 
-alert(
-text[Math.floor(Math.random()*text.length)]
-);
+    "Areyy NO nahi 😜❤️",
+    "YES dabao naaa 🥺💖",
+    "NO allowed nahi hai 😂",
+    "Please YES kar do 😭❤️",
+    "Surprise miss ho jayega 👀🎁"
+
+  ];
+
+  alert(
+    text[Math.floor(Math.random() * text.length)]
+  );
 
 }
 
@@ -779,29 +838,31 @@ text[Math.floor(Math.random()*text.length)]
 
 function cakeScreen(){
 
-show("s3");
+  show("s3");
 
 }
 
 
-/* BLOW */
+/* BLOW CANDLES */
 
 function blow(){
 
-document.getElementById("cakeArea")
-.classList.add("blown");
+  document
+    .getElementById("cakeArea")
+    .classList.add("blown");
 
-document.getElementById("instruction")
-.innerHTML=
-"Wish complete! ✨💨❤️";
+  document
+    .getElementById("instruction")
+    .innerHTML =
+    "Wish complete! ✨💨❤️";
 
-setTimeout(()=>{
+  setTimeout(() => {
 
-show("s4");
+    show("s4");
 
-hearts();
+    hearts();
 
-},1600);
+  },1600);
 
 }
 
@@ -810,76 +871,89 @@ hearts();
 
 function giftScreen(){
 
-show("s5");
+  show("s5");
 
 }
 
 
 function openGift(){
 
-let gift=
-document.getElementById("gift");
+  const gift =
+    document.getElementById("gift");
 
-gift.classList.add("open");
+  gift.classList.add("open");
 
-document.getElementById("giftText")
-.innerHTML=
-"Yayyy! 🍫🍫🍫 Tumhare liye chocolates! 💖";
+  document
+    .getElementById("giftText")
+    .innerHTML =
+    "Yayyy! 🍫🍫🍫 Aapke liye chocolates! 💖";
 
-document.getElementById("lastButton")
-.style.display="inline-block";
+  document
+    .getElementById("lastButton")
+    .style.display = "inline-block";
 
-hearts();
+  hearts();
 
 }
 
 
-/* FINAL */
+/* FINAL MESSAGE */
 
 function messageScreen(){
 
-show("s6");
+  show("s6");
 
-hearts();
+  hearts();
 
 }
 
 
-/* HEARTS */
+/* HEART ANIMATION */
 
 function hearts(){
 
-for(let i=0;i<30;i++){
+  for(let i=0;i<30;i++){
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-let h=document.createElement("div");
+      const h =
+        document.createElement("div");
 
-h.className="heart";
+      h.className = "heart";
 
-let icons=[
-"💖","💕","💗","❤️",
-"💝","✨","🌸","💐"
-];
+      const icons = [
+        "💖",
+        "💕",
+        "💗",
+        "❤️",
+        "💝",
+        "✨",
+        "🌸",
+        "💐"
+      ];
 
-h.innerHTML=
-icons[Math.floor(Math.random()*icons.length)];
+      h.innerHTML =
+        icons[
+          Math.floor(
+            Math.random() * icons.length
+          )
+        ];
 
-h.style.left=
-Math.random()*100+"vw";
+      h.style.left =
+        Math.random() * 100 + "vw";
 
-h.style.animationDuration=
-(3+Math.random()*3)+"s";
+      h.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
 
-document.body.appendChild(h);
+      document.body.appendChild(h);
 
-setTimeout(()=>{
-h.remove();
-},6500);
+      setTimeout(() => {
+        h.remove();
+      },6500);
 
-},i*100);
+    },i * 100);
 
-}
+  }
 
 }
 
