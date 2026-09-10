@@ -3,244 +3,323 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Didi ❤️</title>
+<title>Birthday Didi Jiii 🐱💖</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-  margin:0;
-  min-height:100vh;
-  font-family:Arial,sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow-x:hidden;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+ margin:0;
+ min-height:100vh;
+ overflow:hidden;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#ffd6e7,#e8d8ff,#c9f3ff);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#54204d;
 }
 
 .card{
-  width:92%;
-  max-width:650px;
-  padding:30px 22px;
-  text-align:center;
-  background:rgba(255,255,255,.94);
-  border-radius:28px;
-  box-shadow:0 15px 50px rgba(0,0,0,.2);
-  position:relative;
-  z-index:5;
+ width:min(92%,520px);
+ max-height:92vh;
+ overflow:auto;
+ text-align:center;
+ padding:28px 20px;
+ border-radius:30px;
+ background:rgba(255,255,255,.82);
+ backdrop-filter:blur(12px);
+ box-shadow:0 18px 60px rgba(104,55,110,.25);
+ position:relative;
+ z-index:5;
 }
 
-.cake{
-  font-size:65px;
-  animation:bounce 1s infinite alternate;
-}
-
-h1{
-  color:#ff4081;
-  font-size:clamp(30px,8vw,55px);
-  margin:15px 0;
-}
-
-h2{
-  color:#ff4081;
-}
-
-button{
-  border:0;
-  border-radius:50px;
-  padding:15px 30px;
-  margin:10px;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-#yes{
-  background:#ff4081;
-  color:white;
-}
-
-#no{
-  background:#555;
-  color:white;
-  position:relative;
-}
-
-#msg{
-  display:none;
-  line-height:1.8;
-  font-size:17px;
-  text-align:left;
-  color:#333;
-  white-space:pre-line;
-}
-
-#final{
-  display:none;
-  font-size:28px;
-  margin-top:20px;
-}
-
-.heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:25px;
-  animation:float 5s linear forwards;
-  pointer-events:none;
-  z-index:2;
-}
-
-.confetti{
-  position:fixed;
-  width:10px;
-  height:18px;
-  top:-20px;
-  animation:fall 4s linear forwards;
-  z-index:10;
+.cat{
+ font-size:90px;
+ display:inline-block;
+ animation:bounce 1.8s infinite ease-in-out;
 }
 
 @keyframes bounce{
-  from{transform:translateY(0)}
-  to{transform:translateY(-12px)}
+ 0%,100%{transform:translateY(0) rotate(-3deg)}
+ 50%{transform:translateY(-12px) rotate(3deg)}
 }
 
+.paw{
+ position:fixed;
+ font-size:25px;
+ opacity:.35;
+ animation:float 6s linear infinite;
+}
+
+.p1{left:8%;top:15%}
+.p2{right:10%;top:25%;animation-delay:1s}
+.p3{left:15%;bottom:12%;animation-delay:2s}
+.p4{right:15%;bottom:18%;animation-delay:3s}
+
 @keyframes float{
-  from{
-    transform:translateY(0) rotate(0);
-    opacity:1;
-  }
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
+ 0%{transform:translateY(20px) rotate(0)}
+ 100%{transform:translateY(-80px) rotate(25deg)}
+}
+
+h1{
+ font-size:clamp(28px,7vw,42px);
+ margin:10px 0;
+ color:#d63f91;
+}
+
+h2{
+ font-size:22px;
+ margin:8px;
+}
+
+p{
+ font-size:17px;
+ line-height:1.65;
+}
+
+.bubble{
+ display:inline-block;
+ background:#fff0f8;
+ border:2px solid #ffb7dc;
+ padding:10px 17px;
+ border-radius:22px;
+ margin:8px 0 15px;
+ font-weight:bold;
+}
+
+button{
+ border:0;
+ border-radius:999px;
+ padding:14px 25px;
+ margin:8px;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
+ box-shadow:0 8px 20px rgba(150,50,100,.2);
+}
+
+.yes{
+ background:#ff4f9a;
+ color:white;
+}
+
+.no{
+ background:#eee;
+ color:#555;
+ position:relative;
+}
+
+.hidden{
+ display:none;
+}
+
+.message{
+ text-align:left;
+ margin-top:18px;
+}
+
+.message p{
+ background:rgba(255,245,251,.8);
+ padding:12px 15px;
+ border-radius:18px;
+}
+
+.replay{
+ background:#7b61ff;
+ color:white;
+}
+
+.confetti{
+ position:fixed;
+ top:-20px;
+ font-size:24px;
+ z-index:10;
+ animation:fall 3s linear forwards;
 }
 
 @keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-    opacity:0;
-  }
+ to{
+  transform:translateY(110vh) rotate(720deg);
+  opacity:0;
+ }
+}
+
+.heart{
+ position:fixed;
+ bottom:-30px;
+ font-size:25px;
+ animation:heart 5s linear forwards;
+ z-index:2;
+}
+
+@keyframes heart{
+ to{
+  transform:translateY(-110vh) translateX(80px);
+  opacity:0;
+ }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="paw p1">🐾</div>
+<div class="paw p2">🐾</div>
+<div class="paw p3">🐾</div>
+<div class="paw p4">🐾</div>
 
-  <div id="question">
+<div class="card" id="start">
 
-    <div class="cake">🎂</div>
+<div class="cat">🐱</div>
 
-    <h1>Birthday Surprise! 💖</h1>
+<div class="bubble">
+Meowww… Didi jiii 😻
+</div>
 
-    <h2>Didi jiii, surprise dekhogi? 😍</h2>
+<h1>Hey Didi Jiii! 💗</h1>
 
-    <button id="yes" onclick="showBirthday()">YES ❤️</button>
-    <button id="no">NO 😜</button>
+<p>
+Ye cute si cat aapke liye ek birthday surprise laayi hai… 🎁✨
+</p>
 
-  </div>
+<h2>
+Khologe surprise? 🐾
+</h2>
 
-  <div id="birthday">
+<button class="yes" onclick="openSurprise()">
+YES ❤️
+</button>
 
-    <div class="cake">🎂✨🎉</div>
-
-    <h1>Happy Birthday, Dear Didi Jiii! ❤️🥳</h1>
-
-    <div id="msg">
-Happy Birthday  Dear Didi jiii... 🥳 🎉🎉🎉 🎂
-
-Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
-
-I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
-
-Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
-
-Happy Birthday once again, Didi! 🥳❤️
-    </div>
-
-    <div id="final">
-      💖🌸🎂🎉🥳🎊❤️
-    </div>
-
-  </div>
+<button class="no" id="noBtn">
+NO 😜
+</button>
 
 </div>
 
+
+<div class="card hidden" id="birthday">
+
+<div class="cat">😻</div>
+
+<div class="bubble">
+Meowww! Happy Birthday Didi Jiii! 🎂💖
+</div>
+
+<h1>
+Happy Birthday, Dear Didi Jiii! ❤️🥳
+</h1>
+
+<div class="message">
+
+<p>
+<b>
+Happy Birthday Dear Didi jiii... 🥳 🎉🎉🎉 🎂
+</b>
+</p>
+
+<p>
+Aapko wish karne ke liye honestly koi perfect words nahi hain, bas itna kehna hai ki aap meri life mein bahut special ho. Aapse baat karna, aapka care karna aur aapka hamesha apnepan se rehna — ye sab mere liye genuinely bahut important hai. ❤️
+</p>
+
+<p>
+I hope aapki life mein hamesha happiness rahe, aap jo chahein woh achieve karo aur har naya saal aapke liye aur bhi beautiful ho.
+</p>
+
+<p>
+Aaj ka din bilkul aapke jaisa special ho. Khush raho, smile karti raho aur haan… birthday treat dena mat bhoolna. 😄❤️
+</p>
+
+<p>
+<b>
+Happy Birthday once again, Didi! 🥳❤️
+</b>
+</p>
+
+</div>
+
+<button class="replay" onclick="location.reload()">
+Replay 🐱
+</button>
+
+</div>
+
+
 <script>
 
-const noBtn = document.getElementById("no");
+const noBtn=document.getElementById('noBtn');
 
 function moveNo(){
-  const x = Math.random() * (window.innerWidth - 130);
-  const y = Math.random() * (window.innerHeight - 70);
 
-  noBtn.style.position = "fixed";
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
+ const x=Math.random()*(window.innerWidth-120);
+ const y=Math.random()*(window.innerHeight-70);
+
+ noBtn.style.position='fixed';
+ noBtn.style.left=x+'px';
+ noBtn.style.top=y+'px';
+
 }
 
-noBtn.addEventListener("mouseenter",moveNo);
-noBtn.addEventListener("touchstart",function(e){
+noBtn.addEventListener('mouseenter',moveNo);
+
+noBtn.addEventListener(
+ 'touchstart',
+ e=>{
   e.preventDefault();
   moveNo();
-});
+ },
+ {passive:false}
+);
 
-function showBirthday(){
 
-  document.getElementById("question").style.display="none";
+function openSurprise(){
 
-  document.getElementById("birthday").style.display="block";
+ document.getElementById('start').classList.add('hidden');
 
-  document.getElementById("msg").style.display="block";
+ document.getElementById('birthday').classList.remove('hidden');
 
-  document.getElementById("final").style.display="block";
+ for(let i=0;i<80;i++){
 
-  createConfetti();
+  const c=document.createElement('div');
 
-  setInterval(createHeart,500);
-}
+  c.className='confetti';
 
-function createConfetti(){
+  c.textContent=
+  ['🎉','✨','💖','🎂','🐾','🌸']
+  [Math.floor(Math.random()*6)];
 
-  for(let i=0;i<120;i++){
+  c.style.left=Math.random()*100+'vw';
 
-    const c=document.createElement("div");
+  c.style.animationDelay=
+  Math.random()*1.5+'s';
 
-    c.className="confetti";
+  document.body.appendChild(c);
+ }
 
-    c.style.left=Math.random()*100+"vw";
+ setInterval(()=>{
 
-    c.style.background=
-      ["#ff4081","#ffd700","#00bcd4","#9c27b0","#4caf50","#ff5722"]
-      [Math.floor(Math.random()*6)];
+  const h=document.createElement('div');
 
-    c.style.animationDelay=Math.random()*2+"s";
+  h.className='heart';
 
-    document.body.appendChild(c);
+  h.textContent=
+  ['💖','💕','💗','🐾']
+  [Math.floor(Math.random()*4)];
 
-    setTimeout(()=>c.remove(),5000);
-  }
-}
+  h.style.left=Math.random()*100+'vw';
 
-function createHeart(){
-
-  const h=document.createElement("div");
-
-  h.className="heart";
-
-  h.innerHTML=["❤️","💖","💕","💗","💓","🌸"][Math.floor(Math.random()*6)];
-
-  h.style.left=Math.random()*100+"vw";
-
-  h.style.fontSize=(20+Math.random()*25)+"px";
+  h.style.animationDuration=
+  (4+Math.random()*3)+'s';
 
   document.body.appendChild(h);
 
-  setTimeout(()=>h.remove(),5000);
+  setTimeout(
+   ()=>h.remove(),
+   7000
+  );
+
+ },500);
+
 }
 
 </script>
